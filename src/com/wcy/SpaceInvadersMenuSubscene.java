@@ -72,8 +72,6 @@ public class SpaceInvadersMenuSubscene extends SubScene {
 
     }
 
-
-
     private void createHelpScene(){
         Text text = new Text();
         String t = "HELP? NOBODY CAN HELP WAT STUDENTS...\n\nCREDITS: MARCIN PIOTROWSKI\nI7Y5S1";
@@ -87,11 +85,9 @@ public class SpaceInvadersMenuSubscene extends SubScene {
         text.setLayoutX(40);
         text.setLayoutY(200);
         getPane().getChildren().add(text);
-
     }
 
     private void createSettingsScene(){
-
     }
 
     public AnchorPane getPane(){
