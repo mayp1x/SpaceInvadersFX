@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Modifier;
 
-public class SpaceRunnerButton extends Button {
+public class SpaceInvadersButton extends Button {
 
     private final String FONT_PATH = "src/com/wcy/resources/trench.ttf";
     private final String BUTTON_PR_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/com/wcy/resources/blue_button_pr.png')";
@@ -19,7 +19,7 @@ public class SpaceRunnerButton extends Button {
     public static final int BUTTON_HEIGHT = 49;
 
 
-    public SpaceRunnerButton(String text){
+    public SpaceInvadersButton(String text){
         setText(text);
         setButtonFont();
         setPrefWidth(BUTTON_WIDTH);

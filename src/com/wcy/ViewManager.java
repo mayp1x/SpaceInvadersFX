@@ -1,6 +1,5 @@
 package com.wcy;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,35 +7,39 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import static java.lang.System.exit;
+
 public class ViewManager {
 
     private final String FONT_PATH = "src/com/wcy/resources/trench.ttf";
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 1000;
-    private static final int BUTTON_Y_CENTRE = HEIGHT/2 - SpaceRunnerButton.BUTTON_HEIGHT/2;
-    private static final int BUTTON_X_CENTRE = WIDTH/2 - SpaceRunnerButton.BUTTON_WIDTH/2;
+    private static final int BUTTON_Y_CENTRE = HEIGHT / 2 - SpaceInvadersButton.BUTTON_HEIGHT / 2;
+    private static final int BUTTON_X_CENTRE = WIDTH / 2 - SpaceInvadersButton.BUTTON_WIDTH / 2;
     private AnchorPane mainPane;
     private Scene mainScene;
     private Stage mainStage;
-    ArrayList<SpaceRunnerButton> menuButtons;
+    ArrayList<SpaceInvadersButton> menuButtons;
+    SpaceInvadersMenuSubscene subscene;
 
     public ViewManager() {
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane, WIDTH, HEIGHT);
         mainStage = new Stage();
         mainStage.setScene(mainScene);
+        mainStage.initStyle(StageStyle.UNDECORATED);
         menuButtons = new ArrayList<>();
         createButtons();
         createBackground();
@@ -47,14 +50,21 @@ public class ViewManager {
         createFlyingShip(320, -1, 4, "orange");
         createFlyingShip(380, 1, 7, "blue");
 
-
     }
 
     public Stage getMainStage() {
         return mainStage;
     }
 
-    private void addMenuButton(SpaceRunnerButton button){
+    private void showSubscene(String name){
+        subscene = new SpaceInvadersMenuSubscene(name);
+        mainPane.getChildren().add(subscene);
+    }
+    private void hideSubscene(){
+        mainPane.getChildren().remove(subscene);
+    }
+
+    private void addMenuButton(SpaceInvadersButton button) {
         button.setLayoutX(BUTTON_X_CENTRE);
         button.setLayoutY(BUTTON_Y_CENTRE + menuButtons.size() * 100);
         menuButtons.add(button);
@@ -69,36 +79,95 @@ public class ViewManager {
         createExitButton();
     }
 
-    private void createStartButton(){
-        SpaceRunnerButton startButton = new SpaceRunnerButton("START");
+    private void createStartButton() {
+        SpaceInvadersButton startButton = new SpaceInvadersButton("START");
         addMenuButton(startButton);
+
+        startButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("New game");
+            }
+        });
+
     }
 
-    private void createScoreButton(){
-        SpaceRunnerButton scoreButton = new SpaceRunnerButton("SCOREBOARD");
+    private void createScoreButton() {
+        SpaceInvadersButton scoreButton = new SpaceInvadersButton("SCOREBOARD");
         addMenuButton(scoreButton);
+
+        scoreButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                disableButtons();
+                createReturnToMenuButton();
+                showSubscene("SCOREBOARD");
+            }
+        });
+
     }
 
-    private void createHelpButton(){
-        SpaceRunnerButton helpButton = new SpaceRunnerButton("HELP");
+    private void createHelpButton() {
+        SpaceInvadersButton helpButton = new SpaceInvadersButton("HELP");
         addMenuButton(helpButton);
+
+        helpButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                disableButtons();
+                createReturnToMenuButton();
+                showSubscene("HELP");
+            }
+        });
     }
 
-    private void createSettingsButton(){
-        SpaceRunnerButton settingsButton = new SpaceRunnerButton("SETTINGS");
+    private void createSettingsButton() {
+        SpaceInvadersButton settingsButton = new SpaceInvadersButton("SETTINGS");
         addMenuButton(settingsButton);
+
+        settingsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                disableButtons();
+                createReturnToMenuButton();
+            }
+        });
     }
 
-    private void createExitButton(){
-        SpaceRunnerButton exitButton = new SpaceRunnerButton("EXIT");
+    private void createExitButton() {
+        SpaceInvadersButton exitButton = new SpaceInvadersButton("EXIT");
         addMenuButton(exitButton);
+
+        exitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                exit(0);
+            }
+        });
     }
 
-    private void createFlyingShip(int startY, int whichWay, int speed, String color){
+    private void createReturnToMenuButton() {
+        SpaceInvadersButton returnButton = new SpaceInvadersButton("MENU");
+        returnButton.setLayoutX(700);
+        returnButton.setLayoutY(900);
+        menuButtons.add(returnButton);
+        mainPane.getChildren().add(returnButton);
+
+        returnButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                mainPane.getChildren().remove(returnButton);
+                enableButtons();
+                hideSubscene();
+            }
+        });
+    }
+
+    private void createFlyingShip(int startY, int whichWay, int speed, String color) {
         //default ship is blue
         ImageView ship = new ImageView(new Image("/com/wcy/resources/playership_blue.png", 99, 75, false, true));
 
-        switch (color){
+        switch (color) {
             case "blue":
                 ship = new ImageView(new Image("/com/wcy/resources/playership_blue.png", 99, 75, false, true));
                 break;
@@ -114,15 +183,14 @@ public class ViewManager {
         TranslateTransition t = new TranslateTransition();
         t.setDuration(Duration.seconds(speed));
         t.setToY(startY);
-        ship.setRotate(ship.getRotate()+(90*whichWay));
+        ship.setRotate(ship.getRotate() + (90 * whichWay));
 
-        if(whichWay<0){
-            ship.setTranslateX(WIDTH+200);
+        if (whichWay < 0) {
+            ship.setTranslateX(WIDTH + 200);
             t.setToX(-200);
-        }
-        else{
+        } else {
             ship.setTranslateX(-200);
-            t.setToX(WIDTH+200);
+            t.setToX(WIDTH + 200);
         }
         ship.setTranslateY(startY);
         mainPane.getChildren().add(ship);
@@ -132,8 +200,7 @@ public class ViewManager {
 
     }
 
-
-    private void createTitle(){
+    private void createTitle() {
         Text text = new Text();
         String title = "WAT Invaders";
         text.setText(title);
@@ -141,7 +208,7 @@ public class ViewManager {
         text.setStrokeWidth(1);
         text.setStroke(Color.BLUE);
         try {
-            text.setFont(Font.loadFont(new FileInputStream(FONT_PATH),100));
+            text.setFont(Font.loadFont(new FileInputStream(FONT_PATH), 100));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -150,7 +217,20 @@ public class ViewManager {
         mainPane.getChildren().add(text);
     }
 
-    private void createBackground(){
+    private void disableButtons() {
+        for (Button button : menuButtons) {
+            mainPane.getChildren().remove(button);
+        }
+    }
+
+    private void enableButtons() {
+        for (Button button : menuButtons) {
+            if(button.getText()!="MENU")
+                mainPane.getChildren().add(button);
+        }
+    }
+
+    private void createBackground() {
         Image background = new Image("/com/wcy/resources/space.gif", 787, 457, false, true);
         mainPane.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null)));
 
