@@ -87,9 +87,10 @@ public class ViewManager {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("New game");
+                GameViewManager gameViewManager = new GameViewManager();
+                gameViewManager.createNewGame(mainStage, 1);
             }
         });
-
     }
 
     private void createScoreButton() {
@@ -104,7 +105,6 @@ public class ViewManager {
                 showSubscene("SCOREBOARD");
             }
         });
-
     }
 
     private void createHelpButton() {
@@ -233,6 +233,5 @@ public class ViewManager {
     private void createBackground() {
         Image background = new Image("/com/wcy/resources/space.gif", 787, 457, false, true);
         mainPane.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null)));
-
     }
 }
