@@ -48,7 +48,9 @@ public class PlayerBullet extends Thread {
                     if (bullet.getBoundsInParent().intersects(enemy.getImageView().getBoundsInParent())){
                         Platform.runLater(()->{
                             gm.getPane().getChildren().remove(bullet);
-                            
+                            gm.enemyList.remove(enemy);
+                            System.out.println(gm.enemyList);
+                            gm.getPane().getChildren().remove(enemy);
                         });
                         isAlive=false;
                         enemy.isAlive=false;

@@ -54,7 +54,7 @@ public class Bullet extends Thread {
                         Platform.runLater(()->{
                             gm.getPane().getChildren().remove(player);
                             player.isAlive=false;
-                            //game over
+                            System.exit(0);
                         });
                     }
                     timer.stop();
@@ -68,7 +68,7 @@ public class Bullet extends Thread {
 
             }
             try {
-                Thread.sleep(500);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
