@@ -5,30 +5,58 @@ import javafx.scene.image.ImageView;
 
 public class Player extends ImageView {
     float speed;
-    String shipColor;
     int lifes;
-    int width;
-    int height;
+    String shipColor;
+    boolean available;
     boolean isAlive;
 
-    public Player(float speed, int lifes, String shipColor){
-        super(new Image("/com/wcy/resources/playership_" + shipColor.toLowerCase() + ".png", 55, 105, false, true));
-        this.width = 55;
-        this.height = 105;
-        this.setTranslateY(600);
-        this.setTranslateX(400 - width / 2);
+    public Player(float speed, int lifes, String shipColor) {
+        super(new Image("/com/wcy/resources/playership_" + shipColor.toLowerCase() + ".png"));
+        this.setTranslateX(1000 / 2 - 75 / 2);
+        this.setTranslateY(1000 / 2 - 99 / 2 + 200);
         this.speed = speed;
         this.lifes = lifes;
         this.isAlive = true;
+        this.available = true;
     }
 
-    public void moveRight() {
-        if (this.getTranslateX() + speed <= 800 - width) this.setTranslateX(this.getTranslateX() + speed);
+    public float getSpeed() {
+        return speed;
     }
 
-    public void moveLeft() {
-        if (this.getTranslateX() - speed >= 0) this.setTranslateX(this.getTranslateX() - speed);
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 
+    public int getLifes() {
+        return lifes;
+    }
 
+    public void setLifes(int lifes) {
+        this.lifes = lifes;
+    }
+
+    public String getShipColor() {
+        return shipColor;
+    }
+
+    public void setShipColor(String shipColor) {
+        this.shipColor = shipColor;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
 }

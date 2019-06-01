@@ -31,6 +31,7 @@ public class ViewManager {
     private AnchorPane mainPane;
     private Scene mainScene;
     private Stage mainStage;
+    private String choosenShip;
     ArrayList<SpaceInvadersButton> menuButtons;
     SpaceInvadersMenuSubscene subscene;
 
@@ -38,6 +39,7 @@ public class ViewManager {
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane, WIDTH, HEIGHT);
         mainStage = new Stage();
+        choosenShip = "blue";
         mainStage.setScene(mainScene);
         mainStage.initStyle(StageStyle.UNDECORATED);
         menuButtons = new ArrayList<>();
@@ -88,7 +90,7 @@ public class ViewManager {
             public void handle(ActionEvent event) {
                 System.out.println("New game");
                 GameViewManager gameViewManager = new GameViewManager();
-                gameViewManager.createNewGame(mainStage, 1);
+                gameViewManager.createNewGame(mainStage, choosenShip);
             }
         });
     }
