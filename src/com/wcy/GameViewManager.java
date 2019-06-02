@@ -21,6 +21,7 @@ public class GameViewManager {
     public Player playerShip;
     private AnimationTimer gameTimer;
     private AnimationTimer animationTimer;
+    private AnimationTimer animationTimer2;
     private int enemiesToSpawn;
     private int time;
     private String choosenShip;
@@ -43,12 +44,10 @@ public class GameViewManager {
         enemiesToSpawn=5;
         time=0;
         available=true;
-
         initializeStage();
         createBackground();
         keyListeners();
-        generateRoute();
-        generateEnemies();
+
     }
 
     public int getEnemiesToSpawn() {
@@ -92,7 +91,6 @@ public class GameViewManager {
                 else if(event.getCode()==KeyCode.SPACE){
                     shoot();
                 }
-
             }
         });
 
@@ -124,7 +122,8 @@ public class GameViewManager {
         gameStage.show();
         createPlayer(choosenShip);
         createGameLoop();
-
+        generateEnemies();
+        generateRoute();
 
     }
 
@@ -140,40 +139,25 @@ public class GameViewManager {
             @Override
             public void handle(long now) {
                 generateEnemy();
-                deleteEnemy();
             }
         };
         animationTimer.start();
     }
 
-
-
-    private void generateEnemy(){
+    private void generateEnemy() {
         time++;
-        if(time>50) {
+        if (time > 50) {
             Enemy enemy = new Enemy(2, 3, 674, 100, this, true);
             gamePane.getChildren().add(enemy.getImageView());
             enemyList.add(enemy);
-            Bullet bullet = new Bullet(playerShip,new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);
+            Bullet bullet = new Bullet(playerShip, new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);
             gamePane.getChildren().add(bullet.bullet);
             bullet.start();
-            time=0;
+            time = 0;
             enemiesToSpawn--;
-            if(enemiesToSpawn<=0){
+            if (enemiesToSpawn <= 0) {
                 animationTimer.stop();
             }
-        }
-    }
-
-    private void deleteEnemy(){
-        time++;
-        if(time>50) {
-            for (Enemy enemy : enemyList) {
-                if (enemy.isAlive == false) {
-                    gamePane.getChildren().remove(enemy);
-                }
-            }
-            time=0;
         }
     }
 
@@ -196,7 +180,7 @@ public class GameViewManager {
         if (playerShip.getTranslateX() - 7 >= 0) playerShip.setTranslateX(playerShip.getTranslateX() - 7);
     }
 
-    public void  moveShip(){
+    public void moveShip(){
         if(isLeftKeyPressed && !isRightKeyPressed){
             moveLeft();
         }
@@ -215,6 +199,12 @@ public class GameViewManager {
             @Override
             public void handle(long now) {
                 moveShip();
+                for(Enemy enemy : enemyList){
+                    if(!enemy.isAlive){
+                        enemyList.remove(enemy);
+                        gamePane.getChildren().remove(enemy);
+                    }
+                }
             }
         };
         gameTimer.start();
