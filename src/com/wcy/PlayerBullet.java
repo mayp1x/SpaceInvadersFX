@@ -50,6 +50,10 @@ public class PlayerBullet extends Thread {
                             gm.getPane().getChildren().remove(bullet);
                             System.out.println(enemy);
                             enemy.isAlive=false;
+                            enemy.getImageView().setImage(null);
+                            gm.enemyList.remove(enemy);
+                            gm.getPane().getChildren().remove(enemy);
+                            enemy.getAnimationTimer().stop();
                         });
                         isAlive=false;
                         timer.stop();

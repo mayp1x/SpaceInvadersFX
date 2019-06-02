@@ -155,6 +155,7 @@ public class GameViewManager {
             bullet.start();
             time = 0;
             enemiesToSpawn--;
+
             if (enemiesToSpawn <= 0) {
                 animationTimer.stop();
             }
@@ -199,12 +200,6 @@ public class GameViewManager {
             @Override
             public void handle(long now) {
                 moveShip();
-                for(Enemy enemy : enemyList){
-                    if(!enemy.isAlive){
-                        enemyList.remove(enemy);
-                        gamePane.getChildren().remove(enemy);
-                    }
-                }
             }
         };
         gameTimer.start();

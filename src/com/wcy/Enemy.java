@@ -19,6 +19,7 @@ public class Enemy {
     private int t;
     int randomNumber;
     boolean isAlive;
+    AnimationTimer animationTimer;
 
     public Enemy(float speed, int lifes, int x, int y, GameViewManager gameViewManager, boolean isAlive) {
         imageView = new ImageView(new Image("/com/wcy/resources/enemy.png"));
@@ -32,13 +33,21 @@ public class Enemy {
         this.isAlive = isAlive;
         Random random = new Random();
         this.randomNumber = random.nextInt(20) + 50;
-        AnimationTimer animationTimer = new AnimationTimer() {
+        animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 updatePosition();
             }
         };
         animationTimer.start();
+    }
+
+    public AnimationTimer getAnimationTimer() {
+        return animationTimer;
+    }
+
+    public void setAnimationTimer(AnimationTimer animationTimer) {
+        this.animationTimer = animationTimer;
     }
 
     public ImageView getImageView() {
