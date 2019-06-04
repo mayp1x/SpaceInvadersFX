@@ -17,8 +17,8 @@ public class Bullet extends Thread {
     public Bullet(Player player, Point point, GameViewManager gm) {
         this.player = player;
         bullet = new ImageView(new Image("/com/wcy/resources/laser.png"));
-        bullet.setTranslateX(point.x);
-        bullet.setTranslateY(point.y);
+        bullet.setTranslateX(point.x + 42);
+        bullet.setTranslateY(point.y+90);
         this.gm = gm;
         timer = new AnimationTimer() {
             @Override
@@ -28,6 +28,10 @@ public class Bullet extends Thread {
             }
         };
         timer.start();
+    }
+
+    private void removeLife(){
+
     }
 
     @Override
@@ -45,15 +49,20 @@ public class Bullet extends Thread {
                 player.setAvailable(false);
                 if(bullet.getBoundsInParent().intersects(player.getBoundsInParent())){
                     Platform.runLater(()->{
+                        bullet.setImage(null);
                         gm.getPane().getChildren().remove(bullet);
                     });
                     isAlive=false;
                     player.lifes--;
                     System.out.println(player.lifes);
-                    if(player.lifes<0){
+                    if(player.lifes==0){
                         Platform.runLater(()->{
-                            gm.getPane().getChildren().remove(player);
-                            player.isAlive=false;
+                            player.setTranslateX(-100);
+                            player.setTranslateY(-100);
+                            gm.getGameStage().close();
+                            gm.getGameTimer().stop();
+                            gm.getMenuStage().show();
+                            timer.stop();
                         });
                     }
                     timer.stop();

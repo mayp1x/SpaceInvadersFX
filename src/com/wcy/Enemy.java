@@ -42,6 +42,8 @@ public class Enemy {
         animationTimer.start();
     }
 
+
+
     public AnimationTimer getAnimationTimer() {
         return animationTimer;
     }

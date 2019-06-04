@@ -13,7 +13,7 @@ public class Player extends ImageView {
     public Player(float speed, int lifes, String shipColor) {
         super(new Image("/com/wcy/resources/playership_" + shipColor.toLowerCase() + ".png"));
         this.setTranslateX(1000 / 2 - 75 / 2);
-        this.setTranslateY(1000 / 2 - 99 / 2 + 200);
+        this.setTranslateY(1000 / 2 - 99 / 2 + 300);
         this.speed = speed;
         this.lifes = lifes;
         this.isAlive = true;

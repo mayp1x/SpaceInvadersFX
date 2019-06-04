@@ -18,13 +18,13 @@ public class PlayerBullet extends Thread {
     public PlayerBullet(GameViewManager gm, Point point) {
         this.gm = gm;
         bullet = new ImageView(new Image("/com/wcy/resources/laser.png"));
-        bullet.setTranslateX(point.x + 18);
+        bullet.setTranslateX(point.x + 42);
         bullet.setTranslateY(point.y);
 
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                bullet.setTranslateY(bullet.getTranslateY() - 5);
+                bullet.setTranslateY(bullet.getTranslateY() - 8);
             }
         };
         timer.start();

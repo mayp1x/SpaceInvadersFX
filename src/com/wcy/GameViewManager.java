@@ -21,7 +21,6 @@ public class GameViewManager {
     public Player playerShip;
     private AnimationTimer gameTimer;
     private AnimationTimer animationTimer;
-    private AnimationTimer animationTimer2;
     private int enemiesToSpawn;
     private int time;
     private String choosenShip;
@@ -48,6 +47,30 @@ public class GameViewManager {
         createBackground();
         keyListeners();
 
+    }
+
+    public Stage getMenuStage() {
+        return menuStage;
+    }
+
+    public void setMenuStage(Stage menuStage) {
+        this.menuStage = menuStage;
+    }
+
+    public AnimationTimer getGameTimer() {
+        return gameTimer;
+    }
+
+    public void setGameTimer(AnimationTimer gameTimer) {
+        this.gameTimer = gameTimer;
+    }
+
+    public Stage getGameStage() {
+        return gameStage;
+    }
+
+    public void setGameStage(Stage gameStage) {
+        this.gameStage = gameStage;
     }
 
     public int getEnemiesToSpawn() {
@@ -146,8 +169,8 @@ public class GameViewManager {
 
     private void generateEnemy() {
         time++;
-        if (time > 50) {
-            Enemy enemy = new Enemy(2, 3, 674, 100, this, true);
+        if (time > 100) {
+            Enemy enemy = new Enemy(2, 3, 1200, 100, this, true);
             gamePane.getChildren().add(enemy.getImageView());
             enemyList.add(enemy);
             Bullet bullet = new Bullet(playerShip, new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);

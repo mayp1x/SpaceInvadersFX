@@ -14,9 +14,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 
 import static java.lang.System.exit;
@@ -32,8 +33,11 @@ public class ViewManager {
     private Scene mainScene;
     private Stage mainStage;
     private String choosenShip;
+
     ArrayList<SpaceInvadersButton> menuButtons;
     SpaceInvadersMenuSubscene subscene;
+    final static String MENU_THEME = "src/com/wcy/resources/menu_soundtrack.wav";
+
 
     public ViewManager() {
         mainPane = new AnchorPane();
@@ -46,12 +50,26 @@ public class ViewManager {
         createButtons();
         createBackground();
         createTitle();
+        playMusic(MENU_THEME);
         createFlyingShip(150, -1, 6, "blue");
         createFlyingShip(200, 1, 8, "orange");
         createFlyingShip(280, -1, 5, "green");
         createFlyingShip(320, -1, 4, "orange");
         createFlyingShip(380, 1, 7, "blue");
 
+    }
+
+    private void playMusic(String filepath){
+        InputStream music;
+        try {
+            music = new FileInputStream(new File(filepath));
+            AudioStream audios = new AudioStream(music);
+            AudioPlayer.player.start(audios);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Stage getMainStage() {
