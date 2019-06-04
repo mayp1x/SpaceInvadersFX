@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40d46b99-0107-406c-9a89-2065c9dfa1a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/PlayerBullet$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/PlayerBullet$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/PlayerBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/PlayerBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/ViewManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wcy/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wcy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wcy/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wcy/PlayerBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/PlayerBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wcy/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/ViewManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/ViewManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+            <state relative-caret-position="-633">
+              <caret line="62" column="26" lean-forward="true" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/GameViewManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="698">
+              <caret line="208" column="48" lean-forward="true" selection-start-line="208" selection-start-column="48" selection-end-line="208" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1297#1298#0" expanded="true" />
@@ -82,14 +60,18 @@
                 <element signature="e#1373#1374#0" expanded="true" />
                 <element signature="e#1422#1423#0" expanded="true" />
                 <element signature="e#1464#1465#0" expanded="true" />
-                <element signature="method#initializeStage#0;class#GameViewManager#0" />
+                <element signature="e#4414#4559#0" expanded="true" />
+                <element signature="e#4558#4559#0" expanded="true" />
                 <element signature="method#createPlayer#0;class#GameViewManager#0" />
                 <element signature="method#moveRight#0;class#GameViewManager#0" />
                 <element signature="method#moveLeft#0;class#GameViewManager#0" />
                 <element signature="method#moveShip#0;class#GameViewManager#0" />
                 <element signature="method#createBackground#0;class#GameViewManager#0" />
-                <element signature="e#5798#5937#0" expanded="true" />
-                <element signature="e#5936#5937#0" expanded="true" />
+                <element signature="e#7425#7573#0" expanded="true" />
+                <element signature="e#7572#7573#0" expanded="true" />
+                <element signature="e#7713#7714#0" expanded="true" />
+                <element signature="e#7677#7678#0" expanded="true" />
+                <element signature="e#7726#7727#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -219,9 +201,9 @@
         <option value="$PROJECT_DIR$/src/com/wcy/Player.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/PlayerBullet.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/MusicPlayer.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/ViewManager.java" />
+        <option value="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" />
       </list>
     </option>
   </component>
@@ -328,16 +310,15 @@
       <workItem from="1559416946528" duration="4015000" />
       <workItem from="1559460536546" duration="2198000" />
       <workItem from="1559500915107" duration="1548000" />
-      <workItem from="1559635930045" duration="3923000" />
+      <workItem from="1559635930045" duration="6756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28067000" />
+    <option name="totallyTimeSpent" value="30900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -353,7 +334,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.25649014" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.25649014" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3281412" />
@@ -491,10 +472,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/ViewManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-633">
+          <caret line="62" column="26" lean-forward="true" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wcy/GameViewManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="698">
+          <caret line="208" column="48" lean-forward="true" selection-start-line="208" selection-start-column="48" selection-end-line="208" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1297#1298#0" expanded="true" />
@@ -509,24 +500,18 @@
             <element signature="e#1373#1374#0" expanded="true" />
             <element signature="e#1422#1423#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="method#initializeStage#0;class#GameViewManager#0" />
+            <element signature="e#4414#4559#0" expanded="true" />
+            <element signature="e#4558#4559#0" expanded="true" />
             <element signature="method#createPlayer#0;class#GameViewManager#0" />
             <element signature="method#moveRight#0;class#GameViewManager#0" />
             <element signature="method#moveLeft#0;class#GameViewManager#0" />
             <element signature="method#moveShip#0;class#GameViewManager#0" />
             <element signature="method#createBackground#0;class#GameViewManager#0" />
-            <element signature="e#5798#5937#0" expanded="true" />
-            <element signature="e#5936#5937#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/ViewManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="72" column="5" lean-forward="true" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#7425#7573#0" expanded="true" />
+            <element signature="e#7572#7573#0" expanded="true" />
+            <element signature="e#7713#7714#0" expanded="true" />
+            <element signature="e#7677#7678#0" expanded="true" />
+            <element signature="e#7726#7727#0" expanded="true" />
           </folding>
         </state>
       </provider>

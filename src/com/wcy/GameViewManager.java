@@ -27,6 +27,7 @@ public class GameViewManager {
     private boolean isLeftKeyPressed;
     private boolean isRightKeyPressed;
     private boolean available;
+    private boolean letsGoSecondStage;
 
     ArrayList<Enemy> enemyList;
     ArrayList<Point> positionList;
@@ -40,6 +41,7 @@ public class GameViewManager {
     public GameViewManager(){
         positionList = new ArrayList<>();
         enemyList = new ArrayList<>();
+        letsGoSecondStage=false;
         enemiesToSpawn=5;
         time=0;
         available=true;
@@ -114,6 +116,10 @@ public class GameViewManager {
                 else if(event.getCode()==KeyCode.SPACE){
                     shoot();
                 }
+                else if(event.getCode()==KeyCode.ENTER){
+                    letsGoSecondStage=true;
+                    System.out.println(letsGoSecondStage);
+                }
             }
         });
 
@@ -126,6 +132,7 @@ public class GameViewManager {
                 else if(event.getCode()==KeyCode.RIGHT){
                     isRightKeyPressed=false;
                 }
+
             }
         });
     }
@@ -162,6 +169,7 @@ public class GameViewManager {
             @Override
             public void handle(long now) {
                 generateEnemy();
+
             }
         };
         animationTimer.start();
@@ -183,6 +191,27 @@ public class GameViewManager {
                 animationTimer.stop();
             }
         }
+    }
+
+    private void generateEnemySecondStage(int enemiesToSpawn) {
+            if(letsGoSecondStage) {
+                time++;
+                if (time > 50) {
+                    Enemy enemy = new Enemy(4, 3, 1200, 100, this, true);
+                    gamePane.getChildren().add(enemy.getImageView());
+                    enemyList.add(enemy);
+                    Bullet bullet = new Bullet(playerShip, new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);
+                    gamePane.getChildren().add(bullet.bullet);
+                    bullet.start();
+                    time = 0;
+                    enemiesToSpawn--;
+                    if (enemiesToSpawn <= 0) {
+                        letsGoSecondStage=false;
+                        gameTimer.stop();
+                        //nextStage
+                    }
+                }
+            }
     }
 
     public void shoot(){
@@ -223,6 +252,7 @@ public class GameViewManager {
             @Override
             public void handle(long now) {
                 moveShip();
+                generateEnemySecondStage(10);
             }
         };
         gameTimer.start();
