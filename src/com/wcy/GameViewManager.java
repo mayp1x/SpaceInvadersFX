@@ -1,6 +1,7 @@
 package com.wcy;
 
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -21,6 +22,7 @@ public class GameViewManager {
     public Player playerShip;
     private AnimationTimer gameTimer;
     private AnimationTimer animationTimer;
+    private AnimationTimer levelTwoTimer;
     private int enemiesToSpawn;
     private int time;
     private String choosenShip;
@@ -38,13 +40,13 @@ public class GameViewManager {
     public static final int GAME_HEIGHT = 1000;
 
 
-    public GameViewManager(){
+    public GameViewManager() {
         positionList = new ArrayList<>();
         enemyList = new ArrayList<>();
-        letsGoSecondStage=false;
-        enemiesToSpawn=5;
-        time=0;
-        available=true;
+        letsGoSecondStage = false;
+        enemiesToSpawn = 5;
+        time = 0;
+        available = true;
         initializeStage();
         createBackground();
         keyListeners();
@@ -103,21 +105,18 @@ public class GameViewManager {
         this.available = available;
     }
 
-    private void keyListeners(){
+    private void keyListeners() {
         gameScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.LEFT){
-                    isLeftKeyPressed=true;
-                }
-                else if(event.getCode()==KeyCode.RIGHT){
-                    isRightKeyPressed=true;
-                }
-                else if(event.getCode()==KeyCode.SPACE){
+                if (event.getCode() == KeyCode.LEFT) {
+                    isLeftKeyPressed = true;
+                } else if (event.getCode() == KeyCode.RIGHT) {
+                    isRightKeyPressed = true;
+                } else if (event.getCode() == KeyCode.SPACE) {
                     shoot();
-                }
-                else if(event.getCode()==KeyCode.ENTER){
-                    letsGoSecondStage=true;
+                } else if (event.getCode() == KeyCode.ENTER) {
+                    letsGoSecondStage = true;
                     System.out.println(letsGoSecondStage);
                 }
             }
@@ -126,18 +125,17 @@ public class GameViewManager {
         gameScene.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()==KeyCode.LEFT){
-                    isLeftKeyPressed=false;
-                }
-                else if(event.getCode()==KeyCode.RIGHT){
-                    isRightKeyPressed=false;
+                if (event.getCode() == KeyCode.LEFT) {
+                    isLeftKeyPressed = false;
+                } else if (event.getCode() == KeyCode.RIGHT) {
+                    isRightKeyPressed = false;
                 }
 
             }
         });
     }
 
-    private void initializeStage(){
+    private void initializeStage() {
         gamePane = new AnchorPane();
         gameScene = new Scene(gamePane, GAME_WIDTH, GAME_HEIGHT);
         gameStage = new Stage();
@@ -145,26 +143,27 @@ public class GameViewManager {
 
     }
 
-    public void createNewGame(Stage menuStage, String choosenShip){
+    public void createNewGame(Stage menuStage, String choosenShip) {
         this.menuStage = menuStage;
         this.menuStage.hide();
         this.choosenShip = choosenShip;
         gameStage.show();
         createPlayer(choosenShip);
         createGameLoop();
-        generateEnemies();
+        generateEnemiesStageOne();
+        generateEnemiesStageTwo();
         generateRoute();
 
     }
 
-    public void generateRoute(){
+    public void generateRoute() {
         //positionList.add(new Point(675, 100));
         positionList.add(new Point(100, 100));
         positionList.add(new Point(100, 250));
         positionList.add(new Point(674, 250));
     }
 
-    public void generateEnemies() {
+    public void generateEnemiesStageOne() {
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -173,6 +172,16 @@ public class GameViewManager {
             }
         };
         animationTimer.start();
+    }
+
+    public void generateEnemiesStageTwo() {
+        levelTwoTimer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                if (letsGoSecondStage) generateEnemySecondStage();
+            }
+        };
+        levelTwoTimer.start();
     }
 
     private void generateEnemy() {
@@ -189,39 +198,61 @@ public class GameViewManager {
 
             if (enemiesToSpawn <= 0) {
                 animationTimer.stop();
+                setEnemiesToSpawn(10);
             }
         }
     }
 
-    private void generateEnemySecondStage(int enemiesToSpawn) {
-            if(letsGoSecondStage) {
-                time++;
-                if (time > 50) {
-                    Enemy enemy = new Enemy(4, 3, 1200, 100, this, true);
-                    gamePane.getChildren().add(enemy.getImageView());
-                    enemyList.add(enemy);
-                    Bullet bullet = new Bullet(playerShip, new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);
-                    gamePane.getChildren().add(bullet.bullet);
-                    bullet.start();
-                    time = 0;
-                    enemiesToSpawn--;
-                    if (enemiesToSpawn <= 0) {
-                        letsGoSecondStage=false;
-                        gameTimer.stop();
-                        //nextStage
-                    }
+    private void generateEnemySecondStage() {
+        if (letsGoSecondStage) {
+            time++;
+            if (time > 50) {
+                Enemy enemy = new Enemy(4, 3, 1200, 100, this, true);
+                gamePane.getChildren().add(enemy.getImageView());
+                enemyList.add(enemy);
+                Bullet bullet = new Bullet(playerShip, new Point((int) enemy.getImageView().getTranslateX(), (int) enemy.getImageView().getTranslateY()), this);
+                gamePane.getChildren().add(bullet.bullet);
+                bullet.start();
+                time = 0;
+                enemiesToSpawn--;
+                if (enemiesToSpawn <= 0) {
+                    letsGoSecondStage = false;
+                    levelTwoTimer.stop();
+                    //nextStage
                 }
             }
+        }
     }
 
-    public void shoot(){
+    public void shoot() {
         PlayerBullet bullet = new PlayerBullet(this, new Point((int) playerShip.getTranslateX(), (int) playerShip.getTranslateY()));
         gamePane.getChildren().add(bullet.bullet);
         bullet.start();
     }
 
-    private void createPlayer(String shipColor){
-        playerShip = new Player(8,3,shipColor);
+    private void damagePlayer() {
+        for (Enemy enemy : enemyList) {
+            if (enemy.getImageView().getTranslateY() > 1000) {
+                Platform.runLater(() -> {
+                    enemy.getImageView().setImage(null);
+                    gamePane.getChildren().remove(enemy);
+                    enemyList.remove(enemy);
+                    playerShip.lifes--;
+                    System.out.println(playerShip.lifes);
+                    if (playerShip.lifes == 0) {
+                        playerShip.setTranslateX(-100);
+                        playerShip.setTranslateY(-100);
+                        gameStage.close();
+                        gameTimer.stop();
+                        menuStage.show();
+                    }
+                });
+            }
+        }
+    }
+
+    private void createPlayer(String shipColor) {
+        playerShip = new Player(8, 3, shipColor);
         gamePane.getChildren().add(playerShip);
     }
 
@@ -233,11 +264,10 @@ public class GameViewManager {
         if (playerShip.getTranslateX() - 7 >= 0) playerShip.setTranslateX(playerShip.getTranslateX() - 7);
     }
 
-    public void moveShip(){
-        if(isLeftKeyPressed && !isRightKeyPressed){
+    public void moveShip() {
+        if (isLeftKeyPressed && !isRightKeyPressed) {
             moveLeft();
-        }
-        else if(isRightKeyPressed && !isLeftKeyPressed){
+        } else if (isRightKeyPressed && !isLeftKeyPressed) {
             moveRight();
         }
     }
@@ -247,12 +277,12 @@ public class GameViewManager {
         gamePane.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null)));
     }
 
-    private void createGameLoop(){
+    private void createGameLoop() {
         gameTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 moveShip();
-                generateEnemySecondStage(10);
+                damagePlayer();
             }
         };
         gameTimer.start();
@@ -263,7 +293,7 @@ public class GameViewManager {
         return positionList;
     }
 
-    public AnchorPane getPane(){
+    public AnchorPane getPane() {
         return (AnchorPane) this.gamePane;
     }
 }

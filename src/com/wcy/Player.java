@@ -20,6 +20,7 @@ public class Player extends ImageView {
         this.available = true;
     }
 
+
     public float getSpeed() {
         return speed;
     }
