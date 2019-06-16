@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GameViewManager {
     private AnchorPane gamePane;
@@ -66,7 +67,7 @@ public class GameViewManager {
         letsGoSecondStage = false;
         enemiesToSpawn = 5;
         time = 0;
-        gameEnd= false;
+        gameEnd = false;
         available = true;
         isSecondStage = false;
         initializeStage();
@@ -332,17 +333,17 @@ public class GameViewManager {
     private void drawEndGameText() {
         gamePane.getChildren().remove(nextLevel);
         nextLevel = new Text();
-        gameEnd=false;
-        String t = "Congratulations! You Won!";
+        gameEnd = false;
+        String t = "Congratulations! You Won!\nClick ENTER and check in the guest book :)";
         try {
-            nextLevel.setFont(Font.loadFont(new FileInputStream("src/com/wcy/resources/trench.ttf"), 64));
+            nextLevel.setFont(Font.loadFont(new FileInputStream("src/com/wcy/resources/trench.ttf"), 58));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         nextLevel.setText(t);
         nextLevel.setFill(Color.WHITE);
         nextLevel.setTextAlignment(TextAlignment.CENTER);
-        nextLevel.setLayoutX(180);
+        nextLevel.setLayoutX(10);
         nextLevel.setLayoutY(-100);
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.seconds(3));
@@ -358,7 +359,7 @@ public class GameViewManager {
     }
 
     private void drawLifeCounter() {
-        if(gamePane.getChildren().contains(lifeCounter)){
+        if (gamePane.getChildren().contains(lifeCounter)) {
             gamePane.getChildren().remove(lifeCounter);
         }
         String lifes = Integer.toString(playerShip.getLifes());
@@ -368,16 +369,13 @@ public class GameViewManager {
 
     }
 
-    private void updateScoreboard(String name, int lifes){
-        try
-        {
-            FileWriter fw = new FileWriter("scoreboard.txt",true);
-            fw.write(lifes + ";" + name + "\n");
+    private void updateScoreboard(String name) {
+        try {
+            FileWriter fw = new FileWriter("guestbook.txt", true);
+            fw.write( name + "\n");
             fw.close();
-            System.out.println("ESSA");
-        }
-        catch(IOException ioe)
-        {
+            System.out.println("Thanks for playing the game!");
+        } catch (IOException ioe) {
             System.err.println("IOException: " + ioe.getMessage());
         }
     }
@@ -393,9 +391,25 @@ public class GameViewManager {
                 if (isSecondStage && enemyList.isEmpty()) {
                     drawNextLevelText();
                 }
-                if(gameEnd && enemyList.isEmpty()){
+                if (gameEnd && enemyList.isEmpty()) {
                     drawEndGameText();
-                    updateScoreboard("Yomenik", playerShip.lifes);
+                    gameScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                        @Override
+                        public void handle(KeyEvent event) {
+                            if (event.getCode() == KeyCode.ENTER) {
+                                for(int i=1; i<20; i++){
+                                    System.out.println("*");
+
+                                }
+                                System.out.print("PLEASE ENTER YOUR NAME: ");
+                                Scanner sc = new Scanner(System.in);
+                                String name = sc.nextLine();
+                                updateScoreboard(name);
+                                System.exit(0);
+                            }
+                        }
+                    });
+
                 }
             }
         };

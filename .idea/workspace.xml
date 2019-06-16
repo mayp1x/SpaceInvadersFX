@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40d46b99-0107-406c-9a89-2065c9dfa1a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scoreboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guestbook.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$2.class" afterDir="false" />
@@ -11,7 +10,11 @@
       <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/GameViewManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/SpaceInvadersMenuSubscene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceInvadersFX/com/wcy/SpaceInvadersMenuSubscene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoreboard.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wcy/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wcy/ViewManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/ViewManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1277">
-              <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+            <state relative-caret-position="-675">
+              <caret line="124" column="39" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2409#2410#0" expanded="true" />
@@ -60,48 +63,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/GameViewManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="373" column="44" selection-start-line="373" selection-start-column="44" selection-end-line="373" selection-end-column="44" />
+            <state relative-caret-position="-441">
+              <caret line="358" column="5" lean-forward="true" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
               <folding>
-                <element signature="e#2246#2247#0" expanded="true" />
-                <element signature="e#2337#2338#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#2513#2514#0" expanded="true" />
-                <element signature="e#2580#2581#0" expanded="true" />
-                <element signature="e#2671#2672#0" expanded="true" />
-                <element signature="e#2746#2747#0" expanded="true" />
-                <element signature="e#2855#2856#0" expanded="true" />
-                <element signature="e#2933#2934#0" expanded="true" />
-                <element signature="e#3035#3036#0" expanded="true" />
-                <element signature="e#3149#3150#0" expanded="true" />
-                <element signature="e#3217#3218#0" expanded="true" />
-                <element signature="e#3310#3311#0" expanded="true" />
+                <element signature="e#2273#2274#0" expanded="true" />
+                <element signature="e#2364#2365#0" expanded="true" />
+                <element signature="e#2440#2441#0" expanded="true" />
+                <element signature="e#2540#2541#0" expanded="true" />
+                <element signature="e#2607#2608#0" expanded="true" />
+                <element signature="e#2698#2699#0" expanded="true" />
+                <element signature="e#2773#2774#0" expanded="true" />
+                <element signature="e#2882#2883#0" expanded="true" />
+                <element signature="e#2960#2961#0" expanded="true" />
+                <element signature="e#3062#3063#0" expanded="true" />
+                <element signature="e#3176#3177#0" expanded="true" />
+                <element signature="e#3244#3245#0" expanded="true" />
+                <element signature="e#3337#3338#0" expanded="true" />
                 <element signature="e#5627#5805#0" expanded="true" />
                 <element signature="e#5804#5805#0" expanded="true" />
-                <element signature="e#11373#11374#0" expanded="true" />
-                <element signature="e#10652#10977#0" expanded="true" />
-                <element signature="e#10976#10977#0" expanded="true" />
-                <element signature="e#12807#12808#0" expanded="true" />
-                <element signature="e#12891#12892#0" expanded="true" />
+                <element signature="e#11445#11446#0" expanded="true" />
+                <element signature="e#12240#13380#0" expanded="true" />
+                <element signature="e#13379#13380#0" expanded="true" />
+                <element signature="e#13580#13581#0" expanded="true" />
+                <element signature="e#13664#13665#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scoreboard.txt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/guestbook.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/PlayerBullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state relative-caret-position="525">
+              <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="240">
               <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -136,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/Bullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="58" column="47" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="47" />
+            <state relative-caret-position="477">
+              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,10 +151,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="71" />
+            <state relative-caret-position="564">
+              <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3674#3675#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,7 +164,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wcy/SpaceInvadersButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="174">
               <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -178,6 +182,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>setOnK</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -188,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/com/wcy/Button.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/SpaceRunnerButton.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/SpaceInvadersButton.java" />
-        <option value="$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/resources/Enemy.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/resources/Player.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/Enemy.java" />
@@ -196,10 +204,12 @@
         <option value="$PROJECT_DIR$/src/com/wcy/Bullet.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/MusicPlayer.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/wcy/ViewManager.java" />
         <option value="$PROJECT_DIR$/src/com/wcy/scoreboard.txt" />
-        <option value="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" />
         <option value="$PROJECT_DIR$/scoreboard.txt" />
+        <option value="$PROJECT_DIR$/src/com/wcy/GameViewManager.java" />
+        <option value="$PROJECT_DIR$/src/com/wcy/ViewManager.java" />
+        <option value="$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java" />
+        <option value="$PROJECT_DIR$/guestbook.txt" />
       </list>
     </option>
   </component>
@@ -315,23 +325,22 @@
       <workItem from="1559668925218" duration="716000" />
       <workItem from="1559750413679" duration="147000" />
       <workItem from="1559752627083" duration="1453000" />
-      <workItem from="1560711105746" duration="4880000" />
+      <workItem from="1560711105746" duration="7199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38165000" />
+    <option name="totallyTimeSpent" value="40484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.1076759" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1076759" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -340,7 +349,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.2554517" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.2554517" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32719395" />
@@ -370,60 +379,10 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wcy/MusicPlayer.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wcy/SpaceInvadersButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="174">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/Bullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="58" column="47" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/PlayerBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -442,10 +401,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/GameViewManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-441">
+          <caret line="358" column="5" lean-forward="true" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
+          <folding>
+            <element signature="e#2273#2274#0" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2440#2441#0" expanded="true" />
+            <element signature="e#2540#2541#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#2698#2699#0" expanded="true" />
+            <element signature="e#2773#2774#0" expanded="true" />
+            <element signature="e#2882#2883#0" expanded="true" />
+            <element signature="e#2960#2961#0" expanded="true" />
+            <element signature="e#3062#3063#0" expanded="true" />
+            <element signature="e#3176#3177#0" expanded="true" />
+            <element signature="e#3244#3245#0" expanded="true" />
+            <element signature="e#3337#3338#0" expanded="true" />
+            <element signature="e#5627#5805#0" expanded="true" />
+            <element signature="e#5804#5805#0" expanded="true" />
+            <element signature="e#11445#11446#0" expanded="true" />
+            <element signature="e#12240#13380#0" expanded="true" />
+            <element signature="e#13379#13380#0" expanded="true" />
+            <element signature="e#13580#13581#0" expanded="true" />
+            <element signature="e#13664#13665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wcy/ViewManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1277">
-          <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+        <state relative-caret-position="-675">
+          <caret line="124" column="39" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2409#2410#0" expanded="true" />
@@ -458,39 +446,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wcy/GameViewManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/SpaceInvadersMenuSubscene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="373" column="44" selection-start-line="373" selection-start-column="44" selection-end-line="373" selection-end-column="44" />
+        <state relative-caret-position="564">
+          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
           <folding>
-            <element signature="e#2246#2247#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
-            <element signature="e#2580#2581#0" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-            <element signature="e#2746#2747#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#2933#2934#0" expanded="true" />
-            <element signature="e#3035#3036#0" expanded="true" />
-            <element signature="e#3149#3150#0" expanded="true" />
-            <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3310#3311#0" expanded="true" />
-            <element signature="e#5627#5805#0" expanded="true" />
-            <element signature="e#5804#5805#0" expanded="true" />
-            <element signature="e#11373#11374#0" expanded="true" />
-            <element signature="e#10652#10977#0" expanded="true" />
-            <element signature="e#10976#10977#0" expanded="true" />
-            <element signature="e#12807#12808#0" expanded="true" />
-            <element signature="e#12891#12892#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3674#3675#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scoreboard.txt">
+    <entry file="file://$PROJECT_DIR$/guestbook.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wcy/PlayerBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

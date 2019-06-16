@@ -8,8 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 public class SpaceInvadersMenuSubscene extends SubScene {
 
@@ -28,9 +27,13 @@ public class SpaceInvadersMenuSubscene extends SubScene {
         root2.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null)));
         setLayoutY(1000 / 2 - PANEL_HEIGHT / 2 + 100);
         setLayoutX(1000 / 2 - PANEL_WIDTH / 2);
-        switch (name){
-            case "SCOREBOARD":
-                createScoreboardScene();
+        switch (name) {
+            case "GUESTBOOK":
+                try {
+                    createScoreboardScene();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "HELP":
                 createHelpScene();
@@ -41,9 +44,18 @@ public class SpaceInvadersMenuSubscene extends SubScene {
         }
     }
 
-    private void createScoreboardScene(){
+    private void createScoreboardScene() throws IOException {
         Text text = new Text();
-        String t = "SCOREBOARD";
+        String t = "GUESTBOOK";
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader("guestbook.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+
         try {
             text.setFont(Font.loadFont(new FileInputStream(FONT_PATH), 40));
         } catch (FileNotFoundException e) {
@@ -54,25 +66,30 @@ public class SpaceInvadersMenuSubscene extends SubScene {
         text.setLayoutX(50);
         text.setLayoutY(80);
         getPane().getChildren().add(text);
-
-        for(int i=1; i<6; i++){
+        int i = 1;
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
             Text score = new Text();
             try {
                 score.setFont(Font.loadFont(new FileInputStream(FONT_PATH), 23));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            t= i + ". ~~~~";
+
+            t = i + ". " + line;
             score.setText(t);
             score.setLayoutX(50);
-            score.setLayoutY(100 + 50*i);
+            score.setLayoutY(100 + 50 * i);
             getPane().getChildren().add(score);
+            i++;
+            if(i==8){
+                break;
+            }
         }
-
-
+        bufferedReader.close();
     }
 
-    private void createHelpScene(){
+    private void createHelpScene() {
         Text text = new Text();
         String t = "HELP? NOBODY CAN HELP WAT STUDENTS...\n\nCREDITS: MARCIN PIOTROWSKI\nI7Y5S1";
         try {
@@ -87,10 +104,10 @@ public class SpaceInvadersMenuSubscene extends SubScene {
         getPane().getChildren().add(text);
     }
 
-    private void createSettingsScene(){
+    private void createSettingsScene() {
     }
 
-    public AnchorPane getPane(){
+    public AnchorPane getPane() {
         return (AnchorPane) this.getRoot();
     }
 }

@@ -114,7 +114,7 @@ public class ViewManager {
     }
 
     private void createScoreButton() {
-        SpaceInvadersButton scoreButton = new SpaceInvadersButton("SCOREBOARD");
+        SpaceInvadersButton scoreButton = new SpaceInvadersButton("GUESTBOOK");
         addMenuButton(scoreButton);
 
         scoreButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -122,7 +122,7 @@ public class ViewManager {
             public void handle(ActionEvent event) {
                 disableButtons();
                 createReturnToMenuButton();
-                showSubscene("SCOREBOARD");
+                showSubscene("GUESTBOOK");
             }
         });
     }
