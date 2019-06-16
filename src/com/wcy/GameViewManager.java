@@ -1,17 +1,23 @@
 package com.wcy;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class GameViewManager {
@@ -30,6 +36,10 @@ public class GameViewManager {
     private boolean isRightKeyPressed;
     private boolean available;
     private boolean letsGoSecondStage;
+    private boolean isSecondStage;
+    private Text nextLevel;
+    private Text lifeCounter;
+    private boolean gameEnd;
 
     ArrayList<Enemy> enemyList;
     ArrayList<Point> positionList;
@@ -41,12 +51,24 @@ public class GameViewManager {
 
 
     public GameViewManager() {
+        lifeCounter = new Text();
+        nextLevel = new Text();
+        try {
+            lifeCounter.setFont(Font.loadFont(new FileInputStream("src/com/wcy/resources/trench.ttf"), 64));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        lifeCounter.setFill(Color.WHITE);
+        lifeCounter.setLayoutX(20);
+        lifeCounter.setLayoutY(930);
         positionList = new ArrayList<>();
         enemyList = new ArrayList<>();
         letsGoSecondStage = false;
         enemiesToSpawn = 5;
         time = 0;
+        gameEnd= false;
         available = true;
+        isSecondStage = false;
         initializeStage();
         createBackground();
         keyListeners();
@@ -118,6 +140,9 @@ public class GameViewManager {
                 } else if (event.getCode() == KeyCode.ENTER) {
                     letsGoSecondStage = true;
                     System.out.println(letsGoSecondStage);
+                    isSecondStage = false;
+                    clearNextLevelText();
+
                 }
             }
         });
@@ -134,6 +159,7 @@ public class GameViewManager {
             }
         });
     }
+
 
     private void initializeStage() {
         gamePane = new AnchorPane();
@@ -198,6 +224,7 @@ public class GameViewManager {
 
             if (enemiesToSpawn <= 0) {
                 animationTimer.stop();
+                isSecondStage = true;
                 setEnemiesToSpawn(10);
             }
         }
@@ -218,6 +245,7 @@ public class GameViewManager {
                 if (enemiesToSpawn <= 0) {
                     letsGoSecondStage = false;
                     levelTwoTimer.stop();
+                    gameEnd = true;
                     //nextStage
                 }
             }
@@ -229,6 +257,7 @@ public class GameViewManager {
         gamePane.getChildren().add(bullet.bullet);
         bullet.start();
     }
+
 
     private void damagePlayer() {
         for (Enemy enemy : enemyList) {
@@ -277,12 +306,97 @@ public class GameViewManager {
         gamePane.setBackground(new Background(new BackgroundImage(background, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null)));
     }
 
+    private void drawNextLevelText() {
+        isSecondStage = false;
+        String t = "Press ENTER to continue...";
+        try {
+            nextLevel.setFont(Font.loadFont(new FileInputStream("src/com/wcy/resources/trench.ttf"), 64));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        nextLevel.setText(t);
+        nextLevel.setFill(Color.WHITE);
+        nextLevel.setTextAlignment(TextAlignment.CENTER);
+        nextLevel.setLayoutX(180);
+        nextLevel.setLayoutY(-100);
+
+        TranslateTransition translateTransition = new TranslateTransition();
+        translateTransition.setDuration(Duration.seconds(3));
+        translateTransition.setToY(250);
+        gamePane.getChildren().add(nextLevel);
+        translateTransition.setNode(nextLevel);
+        translateTransition.setCycleCount(1);
+        translateTransition.play();
+    }
+
+    private void drawEndGameText() {
+        gamePane.getChildren().remove(nextLevel);
+        nextLevel = new Text();
+        gameEnd=false;
+        String t = "Congratulations! You Won!";
+        try {
+            nextLevel.setFont(Font.loadFont(new FileInputStream("src/com/wcy/resources/trench.ttf"), 64));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        nextLevel.setText(t);
+        nextLevel.setFill(Color.WHITE);
+        nextLevel.setTextAlignment(TextAlignment.CENTER);
+        nextLevel.setLayoutX(180);
+        nextLevel.setLayoutY(-100);
+        TranslateTransition translateTransition = new TranslateTransition();
+        translateTransition.setDuration(Duration.seconds(3));
+        translateTransition.setToY(250);
+        gamePane.getChildren().add(nextLevel);
+        translateTransition.setNode(nextLevel);
+        translateTransition.setCycleCount(1);
+        translateTransition.play();
+    }
+
+    private void clearNextLevelText() {
+        gamePane.getChildren().remove(nextLevel);
+    }
+
+    private void drawLifeCounter() {
+        if(gamePane.getChildren().contains(lifeCounter)){
+            gamePane.getChildren().remove(lifeCounter);
+        }
+        String lifes = Integer.toString(playerShip.getLifes());
+        String text = "LIFES: " + lifes;
+        lifeCounter.setText(text);
+        gamePane.getChildren().add(lifeCounter);
+
+    }
+
+    private void updateScoreboard(String name, int lifes){
+        try
+        {
+            FileWriter fw = new FileWriter("scoreboard.txt",true);
+            fw.write(lifes + ";" + name + "\n");
+            fw.close();
+            System.out.println("ESSA");
+        }
+        catch(IOException ioe)
+        {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+    }
+
+
     private void createGameLoop() {
         gameTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
+                drawLifeCounter();
                 moveShip();
                 damagePlayer();
+                if (isSecondStage && enemyList.isEmpty()) {
+                    drawNextLevelText();
+                }
+                if(gameEnd && enemyList.isEmpty()){
+                    drawEndGameText();
+                    updateScoreboard("Yomenik", playerShip.lifes);
+                }
             }
         };
         gameTimer.start();
