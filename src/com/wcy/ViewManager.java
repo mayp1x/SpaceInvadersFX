@@ -43,7 +43,7 @@ public class ViewManager {
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane, WIDTH, HEIGHT);
         mainStage = new Stage();
-        choosenShip = "blue";
+        choosenShip = "green";
         mainStage.setScene(mainScene);
         mainStage.initStyle(StageStyle.UNDECORATED);
         menuButtons = new ArrayList<>();

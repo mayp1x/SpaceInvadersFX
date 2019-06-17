@@ -105,6 +105,4 @@ public class Enemy {
             t = 0;
         }
     }
-
-
 }

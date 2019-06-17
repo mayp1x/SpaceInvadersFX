@@ -14,6 +14,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.awt.*;
@@ -167,7 +168,7 @@ public class GameViewManager {
         gameScene = new Scene(gamePane, GAME_WIDTH, GAME_HEIGHT);
         gameStage = new Stage();
         gameStage.setScene(gameScene);
-
+        gameStage.initStyle(StageStyle.UNDECORATED);
     }
 
     public void createNewGame(Stage menuStage, String choosenShip) {
@@ -372,7 +373,7 @@ public class GameViewManager {
     private void updateScoreboard(String name) {
         try {
             FileWriter fw = new FileWriter("guestbook.txt", true);
-            fw.write( name + "\n");
+            fw.write(name + "\n");
             fw.close();
             System.out.println("Thanks for playing the game!");
         } catch (IOException ioe) {
@@ -397,7 +398,7 @@ public class GameViewManager {
                         @Override
                         public void handle(KeyEvent event) {
                             if (event.getCode() == KeyCode.ENTER) {
-                                for(int i=1; i<20; i++){
+                                for (int i = 1; i < 20; i++) {
                                     System.out.println("*");
 
                                 }
